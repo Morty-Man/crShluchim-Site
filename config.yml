@@ -1,0 +1,76 @@
+# Replace YOUR-GITHUB-USERNAME/YOUR-REPO-NAME with your real GitHub repository.
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+locale: "en"
+
+collections:
+  - name: "site"
+    label: "Fundraiser page"
+    files:
+      - name: "content"
+        label: "Page content"
+        file: "content/site.json"
+        fields:
+          - {label: "Header: small line above title", name: "eyebrow", widget: "string"}
+          - {label: "Header: title", name: "title", widget: "string"}
+          - {label: "Main photo", name: "heroImg", widget: "image", required: false}
+          - {label: "Text under main photo", name: "heroCaption", widget: "string"}
+          - {label: "Columns: section heading", name: "colsTitle", widget: "string"}
+          - label: "Columns"
+            name: "cols"
+            widget: "list"
+            summary: "{{fields.t}}"
+            fields:
+              - {label: "Text", name: "t", widget: "text"}
+              - label: "Icon"
+                name: "i"
+                widget: "select"
+                default: "star"
+                options:
+                  - {label: "Candle", value: "candle"}
+                  - {label: "Menorah", value: "menorah"}
+                  - {label: "Torah scroll", value: "torah"}
+                  - {label: "Learning", value: "book"}
+                  - {label: "Star", value: "star"}
+                  - {label: "Kiddush cup", value: "cup"}
+                  - {label: "Community", value: "community"}
+                  - {label: "Teens", value: "teens"}
+                  - {label: "Heart", value: "heart"}
+                  - {label: "Giving box", value: "box"}
+                  - {label: "Center", value: "house"}
+                  - {label: "Events", value: "calendar"}
+              - {label: "Or upload your own icon or logo (overrides the icon above)", name: "img", widget: "image", required: false}
+          - {label: "Progress: text before goal amount", name: "goalPrefix", widget: "string"}
+          - {label: "Progress: goal ($)", name: "goal", widget: "number", value_type: "int", min: 0}
+          - {label: "Progress: raised so far ($)", name: "raised", widget: "number", value_type: "int", min: 0}
+          - {label: "Progress: word after amount raised", name: "raisedLabel", widget: "string"}
+          - {label: "Ways to give: section heading", name: "payTitle", widget: "string"}
+          - label: "Zelle"
+            name: "zelle"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Text above number", name: "sub", widget: "text"}
+              - {label: "Phone number", name: "num", widget: "string"}
+              - {label: "Copy button text", name: "copy", widget: "string"}
+              - {label: "Text after copying", name: "copied", widget: "string"}
+          - label: "Cash App"
+            name: "cash"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Text right above button", name: "sub", widget: "text"}
+              - {label: "Button text", name: "btn", widget: "string"}
+              - {label: "Cash App link (https://...)", name: "url", widget: "string", required: false}
+          - {label: "Community photos: section heading", name: "galTitle", widget: "string"}
+          - label: "Community photos"
+            name: "gal"
+            widget: "list"
+            required: false
+            field: {label: "Photo", name: "photo", widget: "image"}
+          - {label: "Footer line", name: "footer", widget: "string"}
