@@ -1,7 +1,7 @@
 # Replace YOUR-GITHUB-USERNAME/YOUR-REPO-NAME with your real GitHub repository.
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME
+  repo: Morty-Man/crShluchim-Site
   branch: main
 
 media_folder: "images/uploads"
